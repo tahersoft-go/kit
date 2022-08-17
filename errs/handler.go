@@ -3,11 +3,12 @@ package errs
 import (
 	"database/sql"
 	"errors"
-	"gitag.ir/thepot/kit/dtp"
+	"net/http"
+
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/labstack/echo/v4"
+	"github.com/mhosseintaher/kit/dtp"
 	"gorm.io/gorm"
-	"net/http"
 )
 
 func CustomHandler(err error, c echo.Context) {

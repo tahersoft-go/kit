@@ -1,8 +1,9 @@
 package faker
 
 import (
-	"gitag.ir/thepot/kit/dtp"
 	"time"
+
+	"github.com/mhosseintaher/kit/dtp"
 )
 
 func SQLNow() dtp.NullTime {
