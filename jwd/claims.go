@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"github.com/golang-jwt/jwt"
+	"github.com/dgrijalva/jwt-go"
 )
 
 func Claims(ctx context.Context) (*CustomClaims, error) {
