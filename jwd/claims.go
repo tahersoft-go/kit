@@ -3,7 +3,8 @@ package jwd
 import (
 	"context"
 	"errors"
-	"github.com/dgrijalva/jwt-go"
+
+	"github.com/golang-jwt/jwt"
 )
 
 func Claims(ctx context.Context) (*CustomClaims, error) {

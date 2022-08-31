@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.3.0
 	github.com/labstack/echo/v4 v4.8.0
 	go.uber.org/zap v1.22.0
