@@ -10,5 +10,5 @@ type QueryResponse struct {
 }
 
 type DeleteResponse struct {
-	IDs []uint `json:"ids"`
+	IDs []int `json:"ids"`
 }
