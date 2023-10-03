@@ -2,6 +2,8 @@ package response
 
 import (
 	"net/http"
+
+	"gorm.io/gorm"
 )
 
 type ErrorResponse struct {
@@ -13,6 +15,19 @@ type ErrorResponse struct {
 type SuccessResponse struct {
 	StatusCode int         `json:"statusCode"`
 	Data       interface{} `json:"data"`
+}
+
+func GormErrorResponse(err error, df string) ErrorResponse {
+	if err == gorm.ErrRecordNotFound {
+		return ErrorNotFound(nil, "اطلاعات مورد نظر یافت نشد")
+	}
+	if err == gorm.ErrInvalidValue {
+		return ErrorBadRequest(nil, "داده‌های ورودی معتبر نمی‌باشد")
+	}
+	if err == gorm.ErrInvalidData {
+		return ErrorBadRequest(nil, "داده‌های ورودی پشتیبانی نمی‌شود")
+	}
+	return ErrorInternalServerError(nil, df)
 }
 
 func BuildErrorResponse(data interface{}, statusCode int, message string) ErrorResponse {
