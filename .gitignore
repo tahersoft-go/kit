@@ -1,6 +1,8 @@
 # Development log
 logs
 
+.DS_Store
+
 bin
 #Root config file if exist
 config.yaml
