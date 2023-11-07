@@ -3,6 +3,7 @@ package response
 import (
 	"net/http"
 
+	"github.com/mhosseintaher/kit/exp"
 	"gorm.io/gorm"
 )
 
@@ -19,13 +20,13 @@ type SuccessResponse struct {
 
 func GormErrorResponse(err error, df string) ErrorResponse {
 	if err == gorm.ErrRecordNotFound {
-		return ErrorNotFound(nil, "اطلاعات مورد نظر یافت نشد")
+		return ErrorNotFound(nil, exp.TerIf(df == "", "رکورد مورد نظر یافت نشد", df))
 	}
 	if err == gorm.ErrInvalidValue {
-		return ErrorBadRequest(nil, "داده‌های ورودی معتبر نمی‌باشد")
+		return ErrorBadRequest(nil, exp.TerIf(df == "", "داده‌های ورودی پشتیبانی نمی‌شود", df))
 	}
 	if err == gorm.ErrInvalidData {
-		return ErrorBadRequest(nil, "داده‌های ورودی پشتیبانی نمی‌شود")
+		return ErrorBadRequest(nil, exp.TerIf(df == "", "داده‌های ورودی پشتیبانی نمی‌شود", df))
 	}
 	return ErrorInternalServerError(nil, df)
 }
