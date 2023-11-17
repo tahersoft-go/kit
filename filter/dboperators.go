@@ -59,25 +59,36 @@ type DBOperatorAndValue struct {
 
 // GetDBOperatorAndValue returns the database operator and value for a given operator and value
 func GetDBOperatorAndValue(op, value string) DBOperatorAndValue {
+	caseSensitive := false
+
+	likeOperator := "LIKE"
+	equalsOperator := "="
+
+	if !caseSensitive {
+		// Use ILIKE for PostgreSQL or use LOWER for other databases
+		likeOperator = "ILIKE"   // or use LOWER(column) LIKE LOWER(value) in the calling function
+		equalsOperator = "ILIKE" // or use LOWER(column) = LOWER(value) in the calling function
+	}
+
 	switch op {
 	case CONTAINS:
 		return DBOperatorAndValue{
-			Operator: "LIKE",
+			Operator: likeOperator,
 			Value:    "%" + value + "%",
 		}
 	case STARTS_WITH:
 		return DBOperatorAndValue{
-			Operator: "LIKE",
+			Operator: likeOperator,
 			Value:    value + "%",
 		}
 	case ENDS_WITH:
 		return DBOperatorAndValue{
-			Operator: "LIKE",
+			Operator: likeOperator,
 			Value:    "%" + value,
 		}
 	case EQUALS:
 		return DBOperatorAndValue{
-			Operator: "=",
+			Operator: equalsOperator,
 			Value:    value,
 		}
 	case IS_EMPTY:
