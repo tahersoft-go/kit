@@ -3,7 +3,7 @@ package faker
 import (
 	"time"
 
-	"github.com/mhosseintaher/kit/dtp"
+	"github.com/tahersoft-go/kit/dtp"
 )
 
 func SQLNow() dtp.NullTime {
