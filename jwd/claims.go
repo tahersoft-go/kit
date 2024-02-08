@@ -8,6 +8,9 @@ import (
 )
 
 func Claims(ctx context.Context) (jwt.MapClaims, error) {
+	if ctx.Value(UserContextKey) == nil {
+		return nil, errors.New("user context key not found")
+	}
 	if claims, ok := ctx.Value(UserContextKey).(*jwt.Token).Claims.(jwt.MapClaims); ok {
 		return claims, nil
 	}
