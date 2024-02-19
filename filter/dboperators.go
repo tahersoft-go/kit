@@ -81,12 +81,12 @@ func GetDBOperatorAndValue(op, value string) DBOperatorAndValue {
 	case STARTS_WITH:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[STARTS_WITH],
-			Value:    "'" + value + "'" + "%",
+			Value:    "'" + value + "%" + "'",
 		}
 	case ENDS_WITH:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[ENDS_WITH],
-			Value:    "%" + "'" + value + "'",
+			Value:    "'" + "%" + value + "'",
 		}
 	case EQUALS:
 		return DBOperatorAndValue{
