@@ -76,22 +76,22 @@ func GetDBOperatorAndValue(op, value string) DBOperatorAndValue {
 	case CONTAINS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[CONTAINS],
-			Value:    "%" + value + "%",
+			Value:    "%" + "'" + value + "'" + "%",
 		}
 	case STARTS_WITH:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[STARTS_WITH],
-			Value:    value + "%",
+			Value:    "'" + value + "'" + "%",
 		}
 	case ENDS_WITH:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[ENDS_WITH],
-			Value:    "%" + value,
+			Value:    "%" + "'" + value + "'",
 		}
 	case EQUALS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[EQUALS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case IS_EMPTY:
 		return DBOperatorAndValue{
@@ -115,66 +115,66 @@ func GetDBOperatorAndValue(op, value string) DBOperatorAndValue {
 	case NUMBER_EQUALS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_EQUALS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case NUMBER_NOT_EQUALS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_NOT_EQUALS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case NUMBER_GREATER_THAN:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_GREATER_THAN],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case NUMBER_GREATER_THAN_EQUALS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_GREATER_THAN_EQUALS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case NUMBER_LESS_THAN:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_LESS_THAN],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case NUMBER_LESS_THAN_EQUALS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[NUMBER_LESS_THAN_EQUALS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case IS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[IS],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case DATE_IS_NOT:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[DATE_IS_NOT],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case DATE_IS_AFTER:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[DATE_IS_AFTER],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case DATE_IS_BEFORE:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[DATE_IS_BEFORE],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case DATE_IS_ON_OR_AFTER:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[DATE_IS_ON_OR_AFTER],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	case DATE_IS_ON_OR_BEFORE:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[DATE_IS_ON_OR_BEFORE],
-			Value:    value,
+			Value:    "'" + value + "'",
 		}
 	}
 	return DBOperatorAndValue{
 		Operator: MapSqlOperators[EQUALS],
-		Value:    value,
+		Value:    "'" + value + "'",
 	}
 }
