@@ -76,7 +76,7 @@ func GetDBOperatorAndValue(op, value string) DBOperatorAndValue {
 	case CONTAINS:
 		return DBOperatorAndValue{
 			Operator: MapSqlOperators[CONTAINS],
-			Value:    "%" + "'" + value + "'" + "%",
+			Value:    "'" + "%" + value + "%" + "'",
 		}
 	case STARTS_WITH:
 		return DBOperatorAndValue{
