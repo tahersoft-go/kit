@@ -65,7 +65,6 @@ func New(page, perPage, total int) *Pages {
 func NewFromRequest(req *http.Request, count int) *Pages {
 	page := parseInt(req.URL.Query().Get(PageVar), 1)
 	perPage := parseInt(req.URL.Query().Get(PageSizeVar), DefaultPageSize)
-	fmt.Println("looool", page, perPage, count)
 	return New(page, perPage, count)
 }
 
