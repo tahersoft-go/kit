@@ -5,7 +5,11 @@ import (
 	"strconv"
 )
 
-func FormatValue(value string) string {
+func FormatStrToNumber(value string) string {
+	if value == "" {
+		return "0"
+	}
+
 	if _, err := strconv.ParseFloat(value, 64); err == nil {
 		// Value is a number, do not add quotes
 		return value
