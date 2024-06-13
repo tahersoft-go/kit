@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func FormatStrToNumber(value string) string {
+func FormatStrNumberQuote(value string) string {
 	if value == "" {
 		return "0"
 	}
