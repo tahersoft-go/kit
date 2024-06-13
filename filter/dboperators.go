@@ -10,7 +10,7 @@ type OperatorValue struct {
 	Value interface{}
 }
 
-type FilterValue[T string | int] struct {
+type FilterValue[T string | int | float64 | float32 | bool] struct {
 	Op    string `json:"op,omitempty"`
 	Value T      `json:"value,omitempty"`
 }
